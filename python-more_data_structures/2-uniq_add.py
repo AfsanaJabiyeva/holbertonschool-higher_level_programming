@@ -9,4 +9,4 @@ def uniq_add(my_list=[]):
         result += num
 
 
-print(f"Result: {result}")
+return result
