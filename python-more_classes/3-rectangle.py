@@ -59,3 +59,4 @@ class Rectangle:
             result += "#" * self.__width
             if i < self.__height - 1:
                 result += "\n"
+        return result
