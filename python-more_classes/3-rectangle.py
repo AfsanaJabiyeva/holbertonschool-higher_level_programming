@@ -57,5 +57,5 @@ class Rectangle:
         result = ""
         for i in range(self.__height):
             result += "#" * self.__width
-        if i < self.__heigth - 1:
-            result += "\n"
+            if i < self.__height - 1:
+                result += "\n"
