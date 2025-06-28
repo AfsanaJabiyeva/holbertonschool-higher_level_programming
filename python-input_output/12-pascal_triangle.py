@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""comment"""
+
+
 def pascal_triangle(n):
     """Return Pascal's triangle of n rows."""
     if n <= 0:
