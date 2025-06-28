@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Comment"""
+
+
 def inherits_from(obj, a_class):
     """
     Return True if obj is an instance of a class that inherited
