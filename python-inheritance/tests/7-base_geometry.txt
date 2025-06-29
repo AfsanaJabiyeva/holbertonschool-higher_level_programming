@@ -53,12 +53,6 @@ TypeError
 TypeError
 
 >>> try:
-...     bg.area()
-... except Exception as e:
-...     print(type(e).__name__, e)
-Exception area() is not implemented
-
->>> try:
 ...     bg.integer_validator("age", [3])
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
@@ -69,3 +63,8 @@ Exception area() is not implemented
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] age must be an integer
+
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
