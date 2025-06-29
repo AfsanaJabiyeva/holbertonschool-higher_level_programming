@@ -11,3 +11,15 @@
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+>>> my_list_with_negatives = MyList()
+>>> my_list_with_negatives.append(-5)
+>>> my_list_with_negatives.append(10)
+>>> my_list_with_negatives.append(-2)
+>>> my_list_with_negatives.append(0)
+>>> my_list_with_negatives.append(3)
+>>> print(my_list_with_negatives)
+[-5, 10, -2, 0, 3]
+>>> my_list_with_negatives.print_sorted()
+[-5, -2, 0, 3, 10]
+>>> print(my_list_with_negatives)
+[-5, 10, -2, 0, 3]
