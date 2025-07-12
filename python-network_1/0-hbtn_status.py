@@ -1,24 +1,21 @@
 #!/usr/bin/python3
-"""
-Fetches https://intranet.hbtn.io/status and displays its response info.
-"""
-
-import urllib.request
-
-
-def fetch_status():
-    """Fetch and display response from https://intranet.hbtn.io/status."""
-    url = 'https://intranet.hbtn.io/status'
-    req = urllib.request.Request(url)
-    req.add_header('cfclearance', 'true')
-
-    with urllib.request.urlopen(req) as response:
-        content = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(content)))
-        print("\t- content: {}".format(content))
-        print("\t- utf8 content: {}".format(content.decode("utf-8")))
-
+"""Fetches a URL"""
+from urllib import request
 
 if __name__ == "__main__":
-    fetch_status()
+    """Makes code executable when it is directly run"""
+    url = "https://intranet.hbtn.io/status"
+    req = request.Request(url)
+    req.add_header('cfclearance', 'true')
+
+    with request.urlopen(req) as response:
+        """Opens the url and reads the contents"""
+        body = response.read()
+        utf8_content = body.decode('utf-8')
+
+    """Prints out the desired output"""
+    print("Body response:")
+    print("\t- type:", type(body))
+    print("\t- content:", body)
+    print("\t- utf8 content:", utf8_content)
+
