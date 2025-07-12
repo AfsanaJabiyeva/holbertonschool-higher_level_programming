@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """
 Fetches https://intranet.hbtn.io/status using requests
-and displays the response body.
+with cfclearance header to bypass Cloudflare protection.
 """
 
 import requests
 
 if __name__ == "__main__":
-    response = requests.get("https://intranet.hbtn.io/status")
+    url = "https://intranet.hbtn.io/status"
+    headers = {'cfclearance': 'true'}
+    response = requests.get(url, headers=headers)
     content = response.text
     print("Body response:")
     print(f"\t- type: {type(content)}")
