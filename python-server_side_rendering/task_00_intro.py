@@ -29,6 +29,7 @@ def generate_invitations(template, attendees):
 
             filled_temp = filled_temp.replace(f"{{{key}}}", value)
 
+        output_file = f"output_{index}.txt"
         try:
             with open(output_file, 'w', encoding="utf-8") as o_f:
                 o_f.write(filled_temp)
