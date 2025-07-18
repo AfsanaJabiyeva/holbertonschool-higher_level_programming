@@ -84,7 +84,7 @@ def product_display():
             product_id = int(id_param)
             product_data = [p for p in product_data if p["id"] == product_id]
             if not product_data:
-                error_message = f"Product with ID {product_id} not found."
+                error_message = f"Failed: Product not found"
         except ValueError:
             error_message = "Invalid ID format. ID must be an integer."
 
