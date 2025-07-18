@@ -75,7 +75,7 @@ def product_display():
 
         return render_template("product_display.html", products=products)
     else:
-        return render_template("product_display.html", error="Failed")
+        return render_template("product_display.html", error="Wrong sourse")
 
 
     if product_data is None:
