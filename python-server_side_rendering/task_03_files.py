@@ -57,31 +57,6 @@ def read_csv(somefile):
         return None
 
 
-@app.route('/products')
-def product_display():
-    source = request.args.get('source')
-    if source == 'json':
-        try:
-           products = read_json("products.json")
-        except Exception as e:
-            return render_template("product_display.html", error="Failed to open JSON")
-        return  render_template("product_display.html", products=products)
-    elif source == 'csv':
-        try:
-            products = read_csv("products.csv")
-        except Exception as e:
-            return render_template("product_display.html", error="Failed to open csv")
-
-
-        return render_template("product_display.html", products=products)
-    else:
-        return render_template("product_display.html", error="Failed: Wrong source error not found")
-
-
-    if product_data is None:
-        error_message = f"Could not read data from {source} file."
-        return render_template('product_display.html', error=error_message)
-
 
 @app.route('/products')
 def product_display():
