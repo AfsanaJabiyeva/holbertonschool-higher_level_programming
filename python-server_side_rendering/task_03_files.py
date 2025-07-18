@@ -82,16 +82,15 @@ def product_display():
         error_message = f"Could not read data from {source} file."
         return render_template('product_display.html', error=error_message)
 
-    if id_Of_Product:
+    if id_param:
         try:
             product_id = int(id_param)
             product_data = [p for p in product_data if p["id"] == product_id]
             if not product_data:
                 error_message = f"Product with ID {product_id} not found."
         except ValueError:
-            error_message = "ID must be an integer."
+            error_message = "Invalid ID format. ID must be an integer."
 
-        return render_template('product_display.html', products=product_data, error=error_message)
-
+    return render_template("product_display.html", products=product_data, error=error_message)
 if __name__=="__main__":
     app.run(debug=True, port=5000)
