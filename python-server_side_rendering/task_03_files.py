@@ -82,6 +82,28 @@ def product_display():
         error_message = f"Could not read data from {source} file."
         return render_template('product_display.html', error=error_message)
 
+
+@app.route('/products')
+def product_display():
+    source = request.args.get('source')
+    id_param = request.args.get('id')
+    error_message = None
+    product_data = []
+
+    if source == 'json':
+        product_data = read_json("products.json")
+        if product_data is None:
+            return render_template("product_display.html", error="Failed to open JSON")
+
+    elif source == 'csv':
+        product_data = read_csv("products.csv")
+        if product_data is None:
+            return render_template("product_display.html", error="Failed to open CSV")
+
+    else:
+        return render_template("product_display.html", error="Wrong source")
+
+
     if id_param:
         try:
             product_id = int(id_param)
@@ -92,5 +114,7 @@ def product_display():
             error_message = "Invalid ID format. ID must be an integer."
 
     return render_template("product_display.html", products=product_data, error=error_message)
+
+
 if __name__=="__main__":
     app.run(debug=True, port=5000)
